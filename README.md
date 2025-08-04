@@ -21,8 +21,8 @@ Una aplicación web simple para explorar y escuchar música del franchise Umamus
 
 1. Clona este repositorio:
 ```bash
-git clone https://github.com/tu-usuario/umamusume-app.git
-cd umamusume-app
+git clone https://github.com/xgowther2102/umamusume-music-app.git
+cd umamusume-music-app
 ```
 
 2. Instala las dependencias:
@@ -74,6 +74,26 @@ umamusume-app/
 La aplicación incluye soporte básico para Progressive Web App (PWA) con:
 - Manifest para instalación
 - Service Worker para caché básico
+
+## 🌐 Demo en Vivo
+
+🔗 **[Ver Demo](https://xgowther2102.github.io/umamusume-music-app/)**
+
+La aplicación se despliega automáticamente en GitHub Pages usando GitHub Actions cada vez que se hace push a la rama `main`.
+
+## 🚀 Despliegue
+
+El proyecto se despliega automáticamente usando GitHub Actions. Cada push a `main` activa:
+
+1. **Build automático** con Node.js 18
+2. **Despliegue a GitHub Pages**
+3. **URL de producción**: https://xgowther2102.github.io/umamusume-music-app/
+
+Para despliegue manual:
+```bash
+npm run build
+# Los archivos se generan en la carpeta dist/
+```
 
 ## ⚠️ Nota Legal
 
