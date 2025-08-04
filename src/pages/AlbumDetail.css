@@ -1,0 +1,303 @@
+/* Styles for the album detail view */
+.album-detail {
+  min-height: calc(100vh - 80px); /* Altura mínima menos el navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.album-detail__title {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #ff6b9d, #6c5ce7, #ffd700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.album-detail__title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b9d, #ffd700);
+  border-radius: 2px;
+}
+
+.album-detail__content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  flex: 1;
+  height: calc(100vh - 180px); /* Ajustar según el espacio disponible */
+  overflow: hidden;
+}
+
+.album-detail__songs {
+  flex: 1 1 65%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.album-detail__info {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 300px;
+}
+
+.album-detail__cover {
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.album-detail__cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(45deg, #ff6b9d, #6c5ce7, #ffd700, #00cec9);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  opacity: 0.6;
+}
+
+.album-detail__image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease-out;
+  position: relative;
+  z-index: 1;
+  contain: layout style paint;
+}
+
+.album-detail__image:hover {
+  transform: scale(1.02);
+  will-change: transform;
+}
+
+.album-detail__image:not(:hover) {
+  will-change: auto;
+}
+
+.album-detail__legal-link {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  contain: layout style paint;
+}
+
+.album-detail__legal-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+  will-change: transform;
+}
+
+.album-detail__legal-link:not(:hover) {
+  will-change: auto;
+}
+
+/* Album metadata, description and credits sections */
+.album-detail__horizontal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.album-detail__metadata,
+.album-detail__description,
+.album-detail__credits {
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Desktop: Layout horizontal para la información */
+@media (min-width: 1024px) {
+  .album-detail__horizontal-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .album-detail__metadata {
+    flex: 0 0 300px;
+  }
+
+  .album-detail__description {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .album-detail__credits {
+    flex: 0 0 350px;
+  }
+}
+
+/* Tablet: Mantener layout vertical pero optimizado */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .album-detail__horizontal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .album-detail__description {
+    grid-column: 1 / -1;
+  }
+}
+
+.album-detail__metadata-title,
+.album-detail__description-title,
+.album-detail__credits-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.album-detail__metadata-title::after,
+.album-detail__description-title::after,
+.album-detail__credits-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 1px;
+}
+
+.album-detail__metadata p,
+.album-detail__description p,
+.album-detail__credits p {
+  margin: 0.4rem 0;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.album-detail__metadata strong,
+.album-detail__credits strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.album-detail__description p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+/* Optimizar tamaños de texto en desktop */
+@media (min-width: 1024px) {
+  .album-detail__metadata p,
+  .album-detail__credits p {
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+  }
+
+  .album-detail__metadata-title,
+  .album-detail__credits-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 767px) {
+  .album-detail__title {
+    font-size: 1.8rem;
+  }
+  
+  .album-detail__content {
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .album-detail__songs,
+  .album-detail__info {
+    min-width: auto;
+    overflow: visible;
+  }
+  
+  .album-detail__cover {
+    padding: 1.5rem;
+  }
+
+  .album-detail__horizontal-content {
+    flex-direction: column !important;
+    gap: 1.25rem;
+  }
+
+  .album-detail__metadata,
+  .album-detail__description,
+  .album-detail__credits {
+    padding: 1.25rem;
+  }
+
+  .album-detail__metadata-title,
+  .album-detail__description-title,
+  .album-detail__credits-title {
+    font-size: 1.1rem;
+  }
+
+  .album-detail__metadata p,
+  .album-detail__description p,
+  .album-detail__credits p {
+    font-size: 0.9rem;
+  }
+}
+
+.album-detail__legal-link:hover {
+  border-color: #c2185b;
+}

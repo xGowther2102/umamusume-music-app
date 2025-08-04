@@ -1,0 +1,14 @@
+INSTRUCCIONES PARA AGREGAR LA IMAGEN DEL PERSONAJE:
+
+1. Guarda la imagen adjunta del personaje de Umamusume como "umamusume_character.jpg" 
+2. Colócala en la carpeta: public/images/
+3. La imagen se mostrará como un avatar circular en el navbar
+4. Será clickeable y te llevará al inicio
+
+CARACTERÍSTICAS DEL AVATAR:
+- Forma circular con borde rosa
+- Tamaño: 50px en desktop, 40px en tablet, 35px en móvil
+- Efecto hover con brillo y escala
+- Border animado al pasar el mouse
+
+Si no encuentras la imagen, se mostrará un emoji de caballo como fallback.

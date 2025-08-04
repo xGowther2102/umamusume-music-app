@@ -1,0 +1,8 @@
+Para agregar el logo de Umamusume:
+
+1. Descarga la imagen del logo de Umamusume Pretty Derby desde la imagen que proporcionaste
+2. Guárdala como "umamusume-logo.png" en esta carpeta (public/images/)
+3. La aplicación automáticamente mostrará el logo en el navbar y en la página principal
+
+Si no tienes el logo, puedes usar cualquier imagen PNG con el nombre "umamusume-logo.png"
+La aplicación tiene un fallback que mostrará un emoji si no encuentra la imagen.
